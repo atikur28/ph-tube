@@ -7,13 +7,42 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        
+    </style>
 </head>
 <body>
-    <header>
-
+    <header class="container mx-auto">
+        <nav class="navbar bg-base-100 border-b-[1px] py-8">
+            <div class="navbar-start">
+              <img src="./logos/logo.png" alt="">
+            </div>
+            <div class="navbar-center">
+              <button class="btn bg-slate-300">Sort by view</button>
+            </div>
+            <div class="navbar-end">
+              <button class="btn btn-sm bg-red-600 text-white hover:text-black">Blog</button>
+            </div>
+        </nav>
     </header>
-    <main>
-        
+    <main class="container mx-auto my-14">
+        <section>
+            <!--Menu Section  -->
+            <div id="show-button" class="flex flex-col md:flex-row items-center justify-center gap-5 lg:mb-16">
+                
+            </div>
+            <!-- Card Section -->
+            <div>
+                <!-- True -->
+                <div id="card-container" class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+                </div>
+                <!-- False -->
+                <div id="card-container2">
+
+                </div>
+            </div>
+        </section>
     </main>
 
 
