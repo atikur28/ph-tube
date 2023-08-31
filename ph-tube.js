@@ -24,21 +24,22 @@ const videoCard = async (categoryId) => {
     cardContainer2.textContent = '';
     if(data.status === true){
         cardItems.forEach((item) =>{
+            console.log(item);
             const div = document.createElement('div');
             div.classList = `card w-fit bg-base-100 shadow-xl`;
             div.innerHTML = `
-            <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-            <div class="card-body flex items-start">
-              <div>
-               <img src="" alt="">
+            <figure><img class="h-80 w-fit" src=${item.thumbnail} alt="Shoes" /></figure>
+            <div class="card-body flex flex-row items-start justify-around">
+              <div class="w-max">
+               <img class="rounded-full w-10 h-10" src=${item.authors[0].profile_picture} alt="">
               </div>
               <div>
-              <h2 class="card-title">Building a Winning UX Strategy Using the Kano Model</h2>
-              <div class="flex items-center gap-3">
-                <p>Awlad Hossain</p>
+               <h2 class="card-title">${item.title}</h2>
+               <div class="flex items-center gap-3">
+                <p>${item.authors[0].profile_name}</p>
                 <p></p>
-              </div>
-              <p>91K views</p>
+               </div>
+               <p>${item.others.views} views</p>
               </div>
             </div>
             `;
