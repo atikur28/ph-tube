@@ -24,8 +24,9 @@ const videoCard = async (categoryId) => {
     cardContainer2.textContent = '';
     if(data.status === true){
         cardItems.forEach((item) =>{
-            console.log(item);
-            const div = document.createElement('div');
+            const verify = item.authors[0].verified;
+            if(verify === true){
+              const div = document.createElement('div');
             div.classList = `card w-fit bg-base-100 shadow-xl`;
             div.innerHTML = `
             <figure><img class="h-80 w-fit" src=${item.thumbnail} alt="Shoes" /></figure>
@@ -35,15 +36,40 @@ const videoCard = async (categoryId) => {
               </div>
               <div>
                <h2 class="card-title">${item.title}</h2>
-               <div class="flex items-center gap-3">
+               <div class="flex items-center gap-1">
                 <p>${item.authors[0].profile_name}</p>
-                <p></p>
+                <div>
+                  <img src="./logos/verified.svg" alt="">
+                </div>
                </div>
                <p>${item.others.views} views</p>
               </div>
             </div>
             `;
             cardContainer.appendChild(div);
+            }
+            else{
+              const div = document.createElement('div');
+            div.classList = `card w-fit bg-base-100 shadow-xl`;
+            div.innerHTML = `
+            <figure><img class="h-80 w-fit" src=${item.thumbnail} alt="Shoes" /></figure>
+            <div class="card-body flex flex-row items-start justify-around">
+              <div class="w-max">
+               <img class="rounded-full w-10 h-10" src=${item.authors[0].profile_picture} alt="">
+              </div>
+              <div>
+               <h2 class="card-title">${item.title}</h2>
+               <div class="flex items-center gap-1">
+                <p>${item.authors[0].profile_name}</p>
+                <img src="" alt="">
+               </div>
+               <p>${item.others.views} views</p>
+              </div>
+            </div>
+            `;
+            cardContainer.appendChild(div);
+            }
+            console.log(item);
         });
     }
     else{

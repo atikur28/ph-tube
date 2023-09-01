@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOG</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <header>
+        <h1 class="text-4xl font-bold text-center my-10">Blog Questions and Answers</h1>
+    </header>
+    <main>
+        <!-- 1st Question -->
+        <section class="px-7 lg:px-20">
+            <h3 class="text-2xl font-bold text-center md:text-left">1. Discuss the scope of var, let, and const.</h3>
+            <p class="text-lg text-justify md:text-left">'var', 'let', and 'const' are three different ways to declare variables in JavaScript. They have varying scopes and behaviors, which affect how they can be used and accessed within your code. Let's discuss the scope of each:</p>
+            <p class="text-lg"><strong>=> var:</strong>
+               <li class="text-lg text-justify md:text-left">Variables declared with 'var' are function-scoped or globally scoped, depending on where they are declared.</li>
+               <li class="text-lg text-justify md:text-left">If a variable declared with 'var' is declared within a function, it is accessible only within that function's scope.</li>
+               <li class="text-lg text-justify md:text-left">If a variable declared with 'var' is declared outside of any function, it becomes a property of the global object.</li>
+               <li class="text-lg text-justify md:text-left">Variables declared with 'var' are hoisted, which means they are moved to the top of their scope during the compilation phase. This can lead to unexpected behavior if not managed properly.</li>
+            </p>
+        </section>
+        <section class="px-7 my-4 lg:px-20">
+            <p class="text-lg"><strong>=> let:</strong>
+               <li class="text-lg text-justify md:text-left">Variables declared with 'let' are block-scoped, which means they are limited in scope to the block where they are defined.</li>
+               <li class="text-lg text-justify md:text-left">'let' variables are not hoisted to the entire scope; instead, they are hoisted to the top of their block.</li>
+               <li class="text-lg text-justify md:text-left">Unlike 'var', you cannot redeclare a variable using 'let' within the same scope.</li>
+            </p>
+        </section>
+        <section class="px-7 lg:px-20">
+            <p class="text-lg"><strong>=> const:</strong>
+               <li class="text-lg text-justify md:text-left">Variables declared with 'const' are also block-scoped like 'let'.</li>
+               <li class="text-lg text-justify md:text-left">The key difference with 'const' is that the variable's value cannot be reassigned after it has been assigned once. However, the value itself can still be modified.</li>
+               <li class="text-lg text-justify md:text-left">Like 'let', 'const' variables are not hoisted to the entire scope; they are hoisted to the top of their block.</li>
+            </p>
+        </section>
+        <section class="px-7 lg:px-20">
+            <p class="text-lg text-justify md:text-left my-3">
+                In modern JavaScript development, it's generally recommended to use 'let' and 'const' over 'var', due to their more predictable scoping behavior and better support for block scoping. If you need a variable that won't be reassigned, prefer 'const'. If you expect the variable's value to change, use 'let'. This helps in writing cleaner, more maintainable, and less error-prone code.
+            </p>
+        </section>
+        <!-- 2nd Question -->
+        <section class="px-7 mt-6 lg:px-20">
+            <h3 class="text-2xl font-bold text-center md:text-left">2. The use cases of null and undefined.</h3>
+            <p class="text-lg text-justify md:text-left">'null' and 'undefined' are two distinct values in JavaScript that represent the absence of a meaningful value. While they might seem similar, they have slightly different use cases:</p>
+            <p class="text-lg"><strong>=> undefined:</strong>
+               <li class="text-lg text-justify md:text-left">'undefined' is a primitive value that a variable has when it has been declared but hasn't been assigned a value.</li>
+               <li class="text-lg text-justify md:text-left">When you declare a variable without assigning any value to it, it automatically has the value 'undefined'.</li>
+               <li class="text-lg text-justify md:text-left">Function parameters that are not provided with a value will also be 'undefined'.</li>
+               <li class="text-lg text-justify md:text-left">Accessing an object property or an array element that doesn't exist will also result in an 'undefined' value.</li>
+               <li class="text-lg text-justify md:text-left">It can be used to check if a variable has been assigned a value or not.</li>
+            </p>
+        </section>
+        <section class="px-7 my-4 lg:px-20">
+            <p class="text-lg"><strong>=> null:</strong>
+               <li class="text-lg text-justify md:text-left">'null' is a deliberate assignment to indicate that a variable intentionally holds no value or that an object has no value at a certain key.</li>
+               <li class="text-lg text-justify md:text-left">It is often used to explicitly set a variable or property to signify an absence of meaningful value.</li>
+               <li class="text-lg text-justify md:text-left">It is generally not automatically assigned by the JavaScript engine.</li>
+               <li class="text-lg text-justify md:text-left">It's a way to indicate that a variable or property exists but doesn't have a useful value.</li>
+            </p>
+        </section>
+        <section class="px-7 lg:px-20">
+            <p class="text-lg text-justify md:text-left my-3">
+                In conclusion, 'undefined' is often used to represent the absence of value due to lack of assignment or accessing non-existent properties, while 'null' is used to intentionally indicate that a variable or property holds no meaningful value. It's important to understand the distinctions between these two values to ensure that your code behaves as expected and is easier to debug.
+            </p>
+        </section>
+        <!-- 3rd Question -->
+        <section class="px-7 mt-6 lg:px-20">
+            <h3 class="text-2xl font-bold text-center md:text-left">3. What do you mean by REST API?</h3>
+            <p class="text-lg text-justify md:text-left">REST stands for "Representational State Transfer" and a REST API is a set of rules and conventions that allow different software applications to communicate with each other over the internet. It is a common architectural style used for designing networked applications. 
+                A REST API provides a way for clients to interact with a server by sending HTTP requests and receiving HTTP responses. The key principles of a REST API include:</p>
+            <p class="text-lg mt-4 text-justify md:text-left"><strong>=> Stateless Communication:</strong>
+                Each request from a client to the server must contain all the information needed for the server to understand and process the request. The server should not rely on any previous requests to fulfill the current one.
+            </p>
+            <p class="text-lg mt-4 text-justify md:text-left"><strong>=> HTTP Methods:</strong>
+                REST APIs use standard HTTP methods to indicate the intended action on the resource. The most commonly used HTTP methods are:
+                <li class="text-lg">GET: Retrieve data from the server.</li>
+                <li class="text-lg">POST: Create new data on the server.</li>
+                <li class="text-lg">PUT: Update existing data on the server.</li>
+                <li class="text-lg">DELETE: Remove data from the server.</li>
+            </p>
+            <p class="text-lg my-4 text-justify md:text-left"><strong>=> Resources and URIs:</strong>
+                Resources are the entities that the API manages, such as users, products, or orders. Each resource is identified by a unique URL called a URI (Uniform Resource Identifier). For example, /users might refer to a collection of users, and /users/123 might refer to a specific user with the ID 123.
+            </p>
+            <p class="text-lg text-justify md:text-left"><strong>=> Representation:</strong>
+                Resources can have multiple representations, such as JSON, XML, or HTML. Clients and servers can negotiate the representation format in the HTTP headers.
+            </p>
+            <p class="text-lg my-4 text-justify md:text-left"><strong>=> Response Codes:</strong>
+                HTTP status codes are used to indicate the outcome of a request. For example, a successful GET request might return a status code of 200 (OK), while a request to a non-existent resource might return a 404 (Not Found) status.
+            </p>
+            <p class="text-lg text-justify md:text-left"><strong>=> HATEOAS (Hypertext As The Engine Of Application State):</strong>
+                This principle suggests that the API should provide hyperlinks to related resources in its responses. Clients can navigate through the API using these links instead of relying on prior knowledge.
+            </p>
+        </section>
+        <section class="px-7 mb-20 lg:px-20">
+            <p class="text-lg text-justify md:text-left my-3">
+                A typical interaction with a REST API involves sending an HTTP request with the appropriate method and headers to a specific URI, and then receiving an HTTP response containing the requested data or indicating the outcome of the operation.
+                REST APIs are widely used for building web services and applications that require communication between different components or systems. They provide a standardized way to achieve interoperability and scalability in distributed systems.
+            </p>
+        </section>
+    </main>   
+</body>
+</html>
