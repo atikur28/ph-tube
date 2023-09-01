@@ -1,5 +1,4 @@
 const loadData = async () =>{
-    // console.log('Clicked');
     const response = await fetch(`https://openapi.programming-hero.com/api/videos/categories`);
     const data = await response.json();
     const categories = data.data;
@@ -11,7 +10,6 @@ const loadData = async () =>{
         `;
         showButton.appendChild(div);
     });
-    // console.log(categories);
 }
 
 const videoCard = async (categoryId) => {
@@ -26,14 +24,12 @@ const videoCard = async (categoryId) => {
     if(data.status === true){
         cardItems.forEach((item) =>{
             const verify = item.authors[0].verified;
-            // console.log(item);
             const seconds = item.others.posted_date;
             const second = parseInt(seconds);
             const hourLeft = Math.floor(second / 3600);
             const min = Math.floor((second - hourLeft * 3600) / 60);
-            const time = hourLeft + ' hours ' + min + ' min';
+            const time = hourLeft + ' hours ' + min + ' mins ago';
             const number = 0;
-            // console.log(time);
             if(verify === true){
               if(hourLeft > number && min > number){
                 const div = document.createElement('div');
@@ -138,7 +134,6 @@ const videoCard = async (categoryId) => {
               cardContainer.appendChild(div);
               }
             }
-            // console.log(item);
         });
     }
     else{
@@ -161,15 +156,22 @@ const videoCard = async (categoryId) => {
 const sortByView = async (categoryId) =>{
     const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`);
     const data = await response.json();
-    const items = data.data;
-    const sortByViewContent = document.getElementById('sort-by-view');
-    // sortByViewContent.textContent = '';
-    items.forEach((item) =>{
-      const views = item.others.views;
-      const totalViews = parseFloat(views);
-      const newViews = totalViews * 1000;
-      // console.log(item);
+    const cardItems = data.data;
+    let viewsArray = [];
+    for(let i = 0; i < cardItems.length; i++){
+      const views = cardItems[i].others.views;
+      const numericViews = parseFloat(views.replace('K', '')) * 1000;
+      viewsArray.push(numericViews);
+    }
+    const sortViews = viewsArray.sort(function(a, b) {
+      return b - a;
     });
+    console.log(sortViews);
+    // arrayData.forEach((item) => {
+    //   const number = parseFloat(item.others.views);
+    //   const sorted = number.sort();
+    //   console.log(sorted);
+    // });
 }
 
 loadData();
