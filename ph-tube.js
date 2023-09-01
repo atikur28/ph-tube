@@ -69,7 +69,7 @@ const videoCard = async (categoryId) => {
             `;
             cardContainer.appendChild(div);
             }
-            console.log(item);
+            // console.log(item);
         });
     }
     else{
@@ -85,6 +85,24 @@ const videoCard = async (categoryId) => {
             `;
             cardContainer2.appendChild(div);
     }
+    sortByView(categoryId);
+}
+
+const sortByView = async (categoryId) =>{
+    const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`);
+    const data = await response.json();
+    const items = data.data;
+    const sortByViewContent = document.getElementById('sort-by-view');
+    // sortByViewContent.textContent = '';
+    items.forEach((item) =>{
+      const views = item.others.views;
+      const totalViews = parseFloat(views);
+      const newViews = totalViews * 1000;
+      console.log(newViews);
+      // const div = document.createElement('div');
+      // div.innerHTML = 
+    });
 }
 
 loadData();
+videoCard('1000');

@@ -18,7 +18,7 @@
               <img src="./logos/logo.png" alt="">
             </div>
             <div class="navbar-center">
-              <button class="btn bg-slate-300">Sort by view</button>
+              <button onclick="sortByView()" class="btn bg-slate-300">Sort by view</button>
             </div>
             <div class="navbar-end">
               <button onclick="loadBlog()" class="btn btn-sm bg-red-600 text-white hover:text-black">Blog</button>
@@ -32,7 +32,7 @@
                 
             </div>
             <!-- Card Section -->
-            <div class="mt-10">
+            <div id="sort-by-view" class="mt-10">
                 <!-- True -->
                 <div id="card-container" class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 
@@ -50,7 +50,3 @@
     <script src="./ph-tube.js"></script>
 </body>
 </html>
-
-
-<!-- how to get hour and minute in one time from others:  {views: '1.1K', posted_date: '16950'}  in js -->
-<!-- after clicking a button there will show another page. how to do that in html -->
