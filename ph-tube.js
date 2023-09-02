@@ -148,22 +148,23 @@ const videoCard = async (categoryId) => {
             `;
             cardContainer2.appendChild(div);
     }
-    sortByView(cardItems);
 }
 
 // Still solving
-const sortByView = (cardItems) =>{
-    let viewsArray = [];
-    for(let i = 0; i < cardItems.length; i++){
-      const views = cardItems[i].others.views;
-      const numericViews = parseFloat(views.replace('K', '')) * 1000;
-      viewsArray.push(numericViews);
-    }
-    const sortViews = viewsArray.sort(function(a, b) {
-      return b - a;
-    });
+
+// const sortByView = (categoryId) =>{
+//   console.log(true);
+//     let viewsArray = [];
+//     for(let i = 0; i < cardItems.length; i++){
+//       const views = cardItems[i].others.views;
+//       const numericViews = parseFloat(views.replace('K', '')) * 1000;
+//       viewsArray.push(numericViews);
+//     }
+//     const sortViews = viewsArray.sort(function(a, b) {
+//       return b - a;
+//     });
     
-}
+// }
 
 
 const loadBlog = () =>{
