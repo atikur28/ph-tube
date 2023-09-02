@@ -76,7 +76,7 @@ const videoCard = async (categoryId) => {
                       <img src="./logos/verified.svg" alt="">
                     </div>
                    </div>
-                   <p>${item.others.views} views</p>
+                   <h2 class="total-views">${item.others.views} views</h2>
                   </div>
                 </div>
                 `;
@@ -102,7 +102,7 @@ const videoCard = async (categoryId) => {
                   <p>${item.authors[0].profile_name}</p>
                   <img src="" alt="">
                  </div>
-                 <p>${item.others.views} views</p>
+                 <h2 class="total-views">${item.others.views} views</h2>
                 </div>
               </div>
               `;
@@ -126,7 +126,7 @@ const videoCard = async (categoryId) => {
                   <p>${item.authors[0].profile_name}</p>
                   <img src="" alt="">
                  </div>
-                 <p>${item.others.views} views</p>
+                 <h2 class="total-views">${item.others.views} views</h2>
                 </div>
               </div>
               `;
@@ -151,21 +151,23 @@ const videoCard = async (categoryId) => {
 }
 
 // Still solving
-
-// const sortByView = (categoryId) =>{
-//   console.log(true);
-//     let viewsArray = [];
-//     for(let i = 0; i < cardItems.length; i++){
-//       const views = cardItems[i].others.views;
-//       const numericViews = parseFloat(views.replace('K', '')) * 1000;
-//       viewsArray.push(numericViews);
-//     }
-//     const sortViews = viewsArray.sort(function(a, b) {
-//       return b - a;
-//     });
-    
-// }
-
+function sortByViews () {
+  // console.log(true);
+  const cardContainer = document.getElementById('card-container');
+  const cardItems = Array.from(cardContainer.children);
+  // console.log(cardItems);
+  cardItems.sort((a, b) =>{
+    const view1 = parseInt(a.querySelector(".total-views").textContent);
+    const view2 = parseInt(b.querySelector(".total-views").textContent);
+    // console.log(view1);
+    return view2 - view1;
+  });
+  cardItems.forEach((card) => {
+    cardContainer.appendChild(card);
+    // console.log(cardContainer);
+  });
+}
+sortByViews();
 
 const loadBlog = () =>{
   window.location.href = "https://blog-page-28.surge.sh/";
