@@ -167,7 +167,7 @@ const sortByView = (cardItems) =>{
 
 
 const loadBlog = () =>{
-  window.location.href = "http://127.0.0.1:5500/blog-page.html";
+  window.location.href = "https://blog-page-28.surge.sh/";
 }
 
 
