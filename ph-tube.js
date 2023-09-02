@@ -20,7 +20,6 @@ const videoCard = async (categoryId) => {
     cardContainer.textContent = '';
     const cardContainer2 = document.getElementById('card-container2');
     cardContainer2.textContent = '';
-
     if(data.status === true){
         cardItems.forEach((item) =>{
             const verify = item.authors[0].verified;
@@ -149,14 +148,11 @@ const videoCard = async (categoryId) => {
             `;
             cardContainer2.appendChild(div);
     }
-    sortByView(categoryId);
+    sortByView(cardItems);
 }
 
 // Still solving
-const sortByView = async (categoryId) =>{
-    const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`);
-    const data = await response.json();
-    const cardItems = data.data;
+const sortByView = (cardItems) =>{
     let viewsArray = [];
     for(let i = 0; i < cardItems.length; i++){
       const views = cardItems[i].others.views;
@@ -166,13 +162,14 @@ const sortByView = async (categoryId) =>{
     const sortViews = viewsArray.sort(function(a, b) {
       return b - a;
     });
-    console.log(sortViews);
-    // arrayData.forEach((item) => {
-    //   const number = parseFloat(item.others.views);
-    //   const sorted = number.sort();
-    //   console.log(sorted);
-    // });
+    
 }
+
+
+const loadBlog = () =>{
+  window.location.href = "http://127.0.0.1:5500/blog-page.html";
+}
+
 
 loadData();
 videoCard('1000');
