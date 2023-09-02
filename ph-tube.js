@@ -50,7 +50,7 @@ const videoCard = async (categoryId) => {
                       <img src="./logos/verified.svg" alt="">
                     </div>
                    </div>
-                   <p>${item.others.views} views</p>
+                   <p class="cardviews">${item.others.views} views</p>
                   </div>
                 </div>
                 `;
