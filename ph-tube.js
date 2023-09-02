@@ -76,7 +76,7 @@ const videoCard = async (categoryId) => {
                       <img src="./logos/verified.svg" alt="">
                     </div>
                    </div>
-                   <p class="total-views">${item.others.views} views</p>
+                   <p class="cardviews">${item.others.views} views</p>
                   </div>
                 </div>
                 `;
@@ -102,7 +102,7 @@ const videoCard = async (categoryId) => {
                   <p>${item.authors[0].profile_name}</p>
                   <img src="" alt="">
                  </div>
-                 <p class="total-views">${item.others.views} views</p>
+                 <p class="cardviews">${item.others.views} views</p>
                 </div>
               </div>
               `;
@@ -126,7 +126,7 @@ const videoCard = async (categoryId) => {
                   <p>${item.authors[0].profile_name}</p>
                   <img src="" alt="">
                  </div>
-                 <p class="total-views">${item.others.views} views</p>
+                 <p class="cardviews">${item.others.views} views</p>
                 </div>
               </div>
               `;
@@ -151,23 +151,47 @@ const videoCard = async (categoryId) => {
 }
 
 // Still solving
-function sortByViews () {
-  // console.log(true);
-  const cardContainer = document.getElementById('card-container');
-  const cardItems = Array.from(cardContainer.children);
-  // console.log(cardItems);
-  cardItems.sort((a, b) =>{
-    const view1 = parseInt(a.querySelector(".total-views").textContent);
-    const view2 = parseInt(b.querySelector(".total-views").textContent);
-    // console.log(view1);
-    return view2 - view1;
+const sortByView = () =>{
+  let viewsArray = [];
+  const getViewCard  = document.getElementsByClassName('cardviews');
+
+  console.log(getViewCard);
+
+  for(const index of getViewCard){
+     
+      const views = index.innerText;
+
+        const numericViews = parseFloat(views.replace('K', ''));
+      //   console.log(numericViews)
+        viewsArray.push(numericViews);
+
+  }
+
+  const sortViews = viewsArray.sort(function(a, b) {
+    return b - a;
   });
-  cardItems.forEach((card) => {
-    cardContainer.appendChild(card);
-    // console.log(cardContainer);
-  });
+
+  const getCardSection = document.getElementById('card-container');
+  console.log(getCardSection);
+
+  for(const index of sortViews){
+  
+      for(const element of getViewCard){
+          const elementValue = element.innerText;
+          const convertElementValue = parseFloat(elementValue.replace('K', ''));
+          // console.log(convertElementValue, index)
+  
+          if(index === convertElementValue){
+              // console.log(element)
+              const getParentDiv = element.parentElement.parentElement.parentElement;
+              console.log(getParentDiv);
+              getCardSection.appendChild(getParentDiv);
+          }
+          
+      }
+  }
+
 }
-sortByViews();
 
 const loadBlog = () =>{
   window.location.href = "https://blog-page-28.surge.sh/";
