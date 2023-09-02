@@ -155,7 +155,7 @@ const sortByView = () =>{
   let viewsArray = [];
   const getViewCard  = document.getElementsByClassName('cardviews');
 
-  console.log(getViewCard);
+  // console.log(getViewCard);
 
   for(const index of getViewCard){
      
@@ -172,7 +172,7 @@ const sortByView = () =>{
   });
 
   const getCardSection = document.getElementById('card-container');
-  console.log(getCardSection);
+  // console.log(getCardSection);
 
   for(const index of sortViews){
   
@@ -184,7 +184,7 @@ const sortByView = () =>{
           if(index === convertElementValue){
               // console.log(element)
               const getParentDiv = element.parentElement.parentElement.parentElement;
-              console.log(getParentDiv);
+              // console.log(getParentDiv);
               getCardSection.appendChild(getParentDiv);
           }
           
