@@ -76,7 +76,7 @@ const videoCard = async (categoryId) => {
                       <img src="./logos/verified.svg" alt="">
                     </div>
                    </div>
-                   <h2 class="total-views">${item.others.views} views</h2>
+                   <p class="total-views">${item.others.views} views</p>
                   </div>
                 </div>
                 `;
@@ -102,7 +102,7 @@ const videoCard = async (categoryId) => {
                   <p>${item.authors[0].profile_name}</p>
                   <img src="" alt="">
                  </div>
-                 <h2 class="total-views">${item.others.views} views</h2>
+                 <p class="total-views">${item.others.views} views</p>
                 </div>
               </div>
               `;
@@ -126,7 +126,7 @@ const videoCard = async (categoryId) => {
                   <p>${item.authors[0].profile_name}</p>
                   <img src="" alt="">
                  </div>
-                 <h2 class="total-views">${item.others.views} views</h2>
+                 <p class="total-views">${item.others.views} views</p>
                 </div>
               </div>
               `;
